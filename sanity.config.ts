@@ -5,7 +5,7 @@ import schemas from "./sanity/schemas"
 const config = defineConfig({
   projectId: "4sni4a7s",
   dataset: "production",
-  title: "My Personal Website",
+  title: "Espace administratif | Bonlieu coiffure",
   apiVersion: "2023-03-09",
   basePath: "/admin",
   plugins: [deskTool()],
