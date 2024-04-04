@@ -1,4 +1,16 @@
-export default async function Home() {
+'use client'
+
+import dynamic from "next/dynamic";
+import {useMemo} from "react";
+
+export default function Home() {
+   const Map = useMemo(() => dynamic(
+    () => import('@/app/components/Map'),
+    {
+      loading: () => <p>A map is loading</p>,
+      ssr: false
+    }
+  ), [])
   return (<>
       <header id="home">
           <div className="container h-100">
@@ -544,7 +556,7 @@ export default async function Home() {
         <div className="container" id="contact">
             <div className="row">
                 <div className="col-md-8">
-                    <div id="mapid" style={{height: 400}}/>
+                    <Map position={[46.0110132, 5.9923703]} zoom={17}/>
                 </div>
                 <div className="col-md-4 mt-4">
                     <h1 className="h4">BON LIEU COIFFURE</h1>
