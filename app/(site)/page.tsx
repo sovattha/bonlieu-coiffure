@@ -1,5 +1,7 @@
 'use client'
 
+import { EmblaOptionsType } from "embla-carousel";
+import EmblaCarousel from '@/app/components/embla/EmblaCarousel'
 import dynamic from "next/dynamic";
 import {useMemo} from "react";
 
@@ -11,6 +13,10 @@ export default function Home() {
       ssr: false
     }
   ), [])
+    const OPTIONS: EmblaOptionsType = { loop: true }
+    const SLIDE_COUNT = 5
+    const SLIDES = Array.from(Array(SLIDE_COUNT).keys())
+
   return (<>
       <header id="home">
           <div className="container h-100">
@@ -190,12 +196,12 @@ export default function Home() {
                             <div className="card">
                                 <a
                                     href="https://reservationcoiffeur.fr/bon-lieu-coiffure-sallenoves/coiffeur-barbier-sallenoves-rond-point-de-bonlieu-74270"
-                                    className="d-flex align-items-center"
+                                    className="d-flex align-items-center glow-on-hover"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
                                     <img
-                                        src="/images/qr-code.jpg"
+                                        src="/images/qrcode.png"
                                         alt="QR code réservation en ligne"
                                         id="qr"
                                     />
@@ -434,53 +440,44 @@ export default function Home() {
                             </p>
                         </div>
                         <div className="col-10 offset-1 col-lg-12 offset-lg-0 mt-4">
-                            <div className="owl-carousel" id="salon-carousel">
-                                <img
-                                    src="/images/entree-salon-coiffure.jpg"
-                                    alt="Le salon Bon Lieu Coiffure à Sallenôves"
-                                    className="img-fluid"
-                                />
-                                <img
-                                    src="/images/cote-coiffure-vue-shampoing.jpg"
-                                    alt="Le côté coiffure avec vue sur la partie shampoing"
-                                    className="img-fluid"
-                                />
-                                <img
-                                    src="/images/cote-coiffure-2.jpg"
-                                    alt="Le côté coiffure"
-                                    className="img-fluid"
-                                />
-                                <img
-                                    src="/images/cote-coiffure.jpg"
-                                    alt="Le côté coiffure vu depuis la zone shampoing"
-                                    className="img-fluid"
-                                />
-                                <img
-                                    src="/images/cote-shampoings.jpg"
-                                    alt="Le côté shampoing"
-                                    className="img-fluid"
-                                />
-                                <img
-                                    src="/images/salon.jpg"
-                                    alt="Le salon Bon Lieu Coiffure à Sallenôves"
-                                    className="img-fluid"
-                                />
-                                <img
-                                    src="/images/siege-barbier.jpg"
-                                    alt="Siège de barbier"
-                                    className="img-fluid"
-                                />
-                                <img
-                                    src="/images/statue.jpg"
-                                    alt="Statuette décorative"
-                                    className="img-fluid"
-                                />
-                                <img
-                                    src="/images/materiel-rasage.jpg"
-                                    alt="Rasoir électrique et rasoir de barbier"
-                                    className="img-fluid"
-                                />
-                            </div>
+                            <EmblaCarousel slides={[{
+                                id: 1,
+                                imageUrl: '/images/entree-salon-coiffure.jpg',
+                                title: 'Le salon Bon Lieu Coiffure à Sallenôves'
+                            }, {
+                                id: 2,
+                                imageUrl: '/images/cote-coiffure-vue-shampoing.jpg',
+                                title: 'Le côté coiffure avec vue sur la partie shampoing'
+                            }, {
+                                id: 3,
+                                imageUrl: '/images/cote-coiffure-2.jpg',
+                                title: 'Le côté coiffure'
+                            }, {
+                                id: 4,
+                                imageUrl: '/images/cote-coiffure.jpg',
+                                title: 'Le côté coiffure vu depuis la zone shampoing'
+                            }, {
+                                id: 5,
+                                imageUrl: '/images/cote-shampoings.jpg',
+                                title: 'Le côté shampoing'
+                            }, {
+                                id: 6,
+                                imageUrl: '/images/salon.jpg',
+                                title: 'Le salon Bon Lieu Coiffure à Sallenôves'
+                            }, {
+                                id: 7,
+                                imageUrl: '/images/siege-barbier.jpg',
+                                title: 'Siège de barbier'
+                            }, {
+                                id: 8,
+                                imageUrl: '/images/statue.jpg',
+                                title: 'Statuette décorative'
+                            }, {
+                                id: 9,
+                                imageUrl: '/images/materiel-rasage.jpg',
+                                title: 'Rasoir électrique et rasoir de barbier'
+
+                            }]} options={OPTIONS} />
                         </div>
                     </section>
                     <section className="row mt-5 pt-3">
@@ -524,28 +521,27 @@ export default function Home() {
                             <h1>Nos marques</h1>
                         </div>
                         <div className="col-10 offset-1 col-lg-12 offset-lg-0">
-                            <div className="owl-carousel" id="marques-carousel">
-                                <img
-                                    src="/images/marque-artisan.jpg"
-                                    alt="Logo marque Artisan"
-                                />
-                                <img
-                                    src="/images/marque-broaer.jpg"
-                                    alt="Logo marque Broaer"
-                                />
-                                <img
-                                    src="/images/marque-bandido.jpg"
-                                    alt="Logo marque Bandido"
-                                />
-                                <img
-                                    src="/images/marque-milkshake.jpg"
-                                    alt="Logo marque MilkShake"
-                                />
-                                <img
-                                    src="/images/marque-menstories.jpg"
-                                    alt="Logo marque Men Stories"
-                                />
-                            </div>
+                            <EmblaCarousel slides={[{
+                                id: 1,
+                                imageUrl: '/images/marque-artisan.jpg',
+                                title: 'Logo marque Artisan'
+                            }, {
+                                id: 2,
+                                imageUrl: '/images/marque-broaer.jpg',
+                                title: 'Logo marque Broaer'
+                            }, {
+                                id: 3,
+                                imageUrl: '/images/marque-bandido.jpg',
+                                title: 'Logo marque Bandido'
+                            }, {
+                                id: 4,
+                                imageUrl: '/images/marque-milkshake.jpg',
+                                title: 'Logo marque MilkShake'
+                            }, {
+                                id: 5,
+                                imageUrl: '/images/marque-menstories.jpg',
+                                title: 'Logo marque Men Stories'
+                            }]} options={OPTIONS} />
                         </div>
                     </section>
                 </div>
