@@ -1,5 +1,4 @@
 import '../globals.css'
-import Link from "next/link"
 import { getPages } from '@/sanity/sanity-utils';
 
 export const metadata = {
@@ -15,7 +14,7 @@ export default async function RootLayout({
   const pages = await getPages();
 
   return (
-<html>
+<html className='scroll-smooth' style={{scrollBehavior:'smooth'}}>
   <head>
     <meta charSet="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
