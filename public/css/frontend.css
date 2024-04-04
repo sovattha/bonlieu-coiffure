@@ -8615,6 +8615,10 @@ hr {
     max-width: 100%
 }
 
+.img-fluid {
+    width: 100%
+}
+
 .img-thumbnail {
     background-color: #fff;
     border: 1px solid #dee2e6;
@@ -17976,7 +17980,7 @@ a.text-dark:focus, a.text-dark:hover {
 
 .owl-carousel {
     -webkit-tap-highlight-color: transparent;
-    display: none;
+    /*display: none;*/
     position: relative;
     width: 100%;
     z-index: 1
