@@ -1,5 +1,4 @@
 import '../globals.css'
-import { getPages } from '@/sanity/sanity-utils';
 
 export const metadata = {
   title: 'Bon Lieu Coiffure | Salon de coiffure à Bonlieu - Haute-Savoie (74)',
@@ -11,7 +10,6 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  const pages = await getPages();
 
   return (
 <html className='scroll-smooth' style={{scrollBehavior:'smooth'}}>

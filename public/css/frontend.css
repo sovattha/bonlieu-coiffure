@@ -19019,3 +19019,9 @@ label {
     50% { background-position: 400% 0; }
     100% { background-position: 0 0; }
 }
+
+.btn-outline-light:hover {
+    background-color: #503c3b;
+    border-color: #503c3b;
+    color: white;
+}
