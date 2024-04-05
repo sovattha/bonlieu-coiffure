@@ -1,8 +1,8 @@
 import {PortableTextBlock} from "sanity";
 
-export type WelcomeMessage = {
+export type Horaire = {
   _id: string;
   createdAt: Date;
+  dayOfWeek: string;
   content: PortableTextBlock[];
-  message?: string;
 }

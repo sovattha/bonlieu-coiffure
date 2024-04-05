@@ -1,61 +1,10 @@
-import { createClient, groq } from "next-sanity";
-import { Project } from "@/types/Project";
+import {createClient, groq} from "next-sanity";
 import clientConfig from './config/client-config'
-import { Page } from "@/types/Page";
 import {WelcomeMessage} from "@/types/WelcomeMessage";
-
-export async function getProjects(): Promise<Project[]> {
-  return createClient(clientConfig).fetch(
-    groq`*[_type == "project"]{
-      _id,
-      _createdAt,
-      name,
-      "slug": slug.current,
-      "image": image.asset->url,
-      url,
-      content
-    }`
-  )
-}
-
-export async function getProject(slug: string): Promise<Project> {
-  return createClient(clientConfig).fetch(
-    groq`*[_type == "project" && slug.current == $slug][0]{
-      _id,
-      _createdAt,
-      name,
-      "slug": slug.current,
-      "image": image.asset->url,
-      url,
-      content
-    }`,
-    { slug }
-  )
-}
-
-export async function getPages(): Promise<Page[]> {
-  return createClient(clientConfig).fetch(
-    groq`*[_type == "page"]{
-      _id,
-      _createdAt,
-      title,
-      "slug": slug.current
-    }`
-  )
-}
-
-export async function getPage(slug: string): Promise<Page> {
-  return createClient(clientConfig).fetch(
-    groq`*[_type == "page" && slug.current == $slug][0]{
-      _id,
-      _createdAt,
-      title,
-      "slug": slug.current,
-      content
-    }`,
-    { slug }
-  )
-}
+import {Horaire} from "@/types/Horaire";
+import {ForfaitFemme} from "@/types/ForfaitFemme";
+import {ForfaitJeuneFille} from "@/types/ForfaitJeuneFille";
+import {ForfaitHomme} from "@/types/ForfaitHomme";
 
 export async function getWelcomeMessage(): Promise<WelcomeMessage> {
   return createClient(clientConfig).fetch(
@@ -65,7 +14,75 @@ export async function getWelcomeMessage(): Promise<WelcomeMessage> {
       content,
       message
     }`,
-    {  }
+    {}
+  )
+}
+
+export async function getHoraires(): Promise<Horaire[]> {
+  return createClient(clientConfig).fetch(
+    groq`*[_type == "horaire"] | order(order asc) {
+      _id,
+      _createdAt,
+      order,
+      dayOfWeek,
+      content
+    }`,
+    {}
+  )
+}
+
+export async function getForfaitsFemme(): Promise<ForfaitFemme[]> {
+  return createClient(clientConfig).fetch(
+    groq`*[_type == "forfaitFemme"] | order(order asc) {
+      _id,
+      _createdAt,
+      order,
+      name,
+      price1,
+      price2,
+      price3,
+      otherText
+    }`,
+    {}
+  )
+}
+
+export async function getForfaitsJeuneFille(): Promise<ForfaitJeuneFille[]> {
+  return createClient(clientConfig).fetch(
+    groq`*[_type == "forfaitJeuneFille"] | order(order asc) {
+      _id,
+      _createdAt,
+      order,
+      name,
+      price
+    }`,
+    {}
+  )
+}
+
+export async function getForfaitsHomme(): Promise<ForfaitHomme[]> {
+  return createClient(clientConfig).fetch(
+    groq`*[_type == "forfaitHomme"] | order(order asc) {
+      _id,
+      _createdAt,
+      order,
+      name,
+      price
+    }`,
+    {}
+  )
+}
+
+export async function getForfaitsBarbe(): Promise<ForfaitHomme[]> {
+  return createClient(clientConfig).fetch(
+    groq`*[_type == "forfaitBarbe"] | order(order asc) {
+      _id,
+      _createdAt,
+      order,
+      name,
+      price
+    }`,
+    {}
   )
 }
 

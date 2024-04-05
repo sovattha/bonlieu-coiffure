@@ -1,11 +1,11 @@
 import {PortableText} from "@portabletext/react";
-import {PortableTextBlock} from "sanity";
+import {WelcomeMessage as WelcomeMessageType} from "@/types/WelcomeMessage";
 
-export function WelcomeMessage(props: { content: PortableTextBlock; message?: string }) {
+export function WelcomeMessage(props: { content: WelcomeMessageType['content']; message?: WelcomeMessageType['message'] }) {
     return (
         <div className="mt-3 text-white">
             <PortableText value={props.content} />
-            <span className="font-700">{props.message}</span>
+            <p className="mt-3 text-danger h2">{props.message}</p>
         </div>
     )
 }

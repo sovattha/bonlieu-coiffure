@@ -2,8 +2,21 @@
 
 import {EmblaOptionsType} from "embla-carousel";
 import EmblaCarousel from "@/app/components/embla/EmblaCarousel";
+import {Horaire} from "@/types/Horaire";
+import {PortableText} from "@portabletext/react";
+import {ForfaitFemme} from "@/types/ForfaitFemme";
+import {ForfaitHomme} from "@/types/ForfaitHomme";
+import {ForfaitJeuneFille} from "@/types/ForfaitJeuneFille";
+import {ForfaitBarbe} from "@/types/ForfaitBarbe";
 
-export function MainContent() {
+export function MainContent(props: {
+    horaires: Horaire[],
+    forfaitsFemme: ForfaitFemme[],
+    forfaitsJeuneFille: ForfaitJeuneFille[],
+    forfaitsHomme: ForfaitHomme[],
+    forfaitsBarbe: ForfaitBarbe[],
+}) {
+    const { horaires, forfaitsFemme } = props;
     const OPTIONS: EmblaOptionsType = {loop: true};
     return <main>
         <div className="container-lg my-5">
@@ -13,53 +26,14 @@ export function MainContent() {
                         <h1 className="text-center bg-gray-100 py-3 mb-0 h2">Horaires</h1>
                         <table className="table my-0">
                             <tbody>
-                            <tr className="py-1 px-2 ">
-                                <td className="align-middle">
-                                    <strong>Lundi</strong>
-                                </td>
-                                <td>14:00 - 19:00</td>
-                            </tr>
-                            <tr className="py-1 px-2 ">
-                                <td className="align-middle">
-                                    <strong>Mardi</strong>
-                                </td>
-                                <td>
-                                    09:00 - 12:00 <br/> 14:00 - 19:00
-                                </td>
-                            </tr>
-                            <tr className="py-1 px-2 ">
-                                <td className="align-middle">
-                                    <strong>Mercredi</strong>
-                                </td>
-                                <td>09:00 - 12:00</td>
-                            </tr>
-                            <tr className="py-1 px-2 ">
-                                <td className="align-middle">
-                                    <strong>Jeudi</strong>
-                                </td>
-                                <td>
-                                    09:00 - 19:00 <br/> <strong>NON-STOP</strong>
-                                </td>
-                                {" "}
-                            </tr>
-                            <tr className="py-1 px-2 ">
-                                <td className="align-middle">
-                                    <strong>Vendredi</strong>
-                                </td>
-                                <td>
-                                    09:00 - 20:00 <br/> <strong>NON-STOP</strong>
-                                </td>
-                                {" "}
-                            </tr>
-                            <tr className="py-1 px-2 ">
-                                <td className="align-middle">
-                                    <strong>Samedi</strong>
-                                </td>
-                                <td>
-                                    08:00 - 15:00 <br/> <strong>NON-STOP</strong>
-                                </td>
-                                {" "}
-                            </tr>
+                                {horaires?.map((horaire: Horaire, index: number) => (
+                                    <tr key={index} className="py-1 px-2 ">
+                                        <td className="align-middle">
+                                            <strong>{horaire.dayOfWeek}</strong>
+                                        </td>
+                                        <td><PortableText value={horaire.content} /></td>
+                                    </tr>
+                                ))}
                             </tbody>
                         </table>
                         <p className="text-center bg-gray-100 py-3 mb-0 border-top h4">
@@ -135,54 +109,22 @@ export function MainContent() {
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            <tr>
-                                                <th scope="row">Shampooing + brushing</th>
-                                                <td>27&nbsp;€</td>
-                                                <td>32&nbsp;€</td>
-                                                <td>35&nbsp;€</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Shampooing/coupe + brushing</th>
-                                                <td>38&nbsp;€</td>
-                                                <td>41&nbsp;€</td>
-                                                <td>44&nbsp;€</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">
-                                                    Sampoing/coupe coloration/brushing
-                                                </th>
-                                                <td>71&nbsp;€</td>
-                                                <td>76&nbsp;€</td>
-                                                <td>81&nbsp;€</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">
-                                                    Sampoing/coupe mèches/soin + brushing
-                                                </th>
-                                                <td>86&nbsp;€</td>
-                                                <td>96&nbsp;€</td>
-                                                <td>105&nbsp;€</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Shampooing/coupe + mise en plis</th>
-                                                <td colSpan={3} className="text-center">
-                                                    38&nbsp;€
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Blond polaire</th>
-                                                <td colSpan={3} className="text-center">
-                                                    Sur devis
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">
-                                                    Lissage brésilien ou semi-permanent
-                                                </th>
-                                                <td colSpan={3} className="text-center">
-                                                    Sur devis
-                                                </td>
-                                            </tr>
+                                                {forfaitsFemme.map((forfait: ForfaitFemme, index: number) => (
+                                                    forfait.otherText ?
+                                                        <tr key={index}>
+                                                            <th scope="row">{forfait.name}</th>
+                                                            <td colSpan={3} className="text-center">
+                                                                {forfait.otherText}
+                                                            </td>
+                                                        </tr> :
+                                                        <tr key={index}>
+                                                            <th scope="row">{forfait.name}</th>
+                                                            <td>{forfait.price1}&nbsp;€</td>
+                                                            <td>{forfait.price2}&nbsp;€</td>
+                                                            <td>{forfait.price3}&nbsp;€</td>
+                                                        </tr>
+
+                                                ))}
                                             </tbody>
                                         </table>
                                     </div>
@@ -212,10 +154,12 @@ export function MainContent() {
                                     <div className="table-responsive">
                                         <table className="table">
                                             <tbody>
-                                            <tr>
-                                                <th scope="row">Coupe + brushing</th>
-                                                <td className="text-center">29&nbsp;€</td>
-                                            </tr>
+                                            {props.forfaitsJeuneFille.map((forfait: ForfaitJeuneFille, index: number) => (
+                                                <tr key={index}>
+                                                    <th scope="row">{forfait.name}</th>
+                                                    <td className="text-center">{forfait.price}&nbsp;€</td>
+                                                </tr>
+                                            ))}
                                             </tbody>
                                         </table>
                                     </div>
@@ -239,20 +183,12 @@ export function MainContent() {
                                     <div className="table-responsive">
                                         <table className="table">
                                             <tbody>
-                                            <tr>
-                                                <th scope="row">Shampooing / coupe / séchage</th>
-                                                <td className="text-center">24&nbsp;€</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">
-                                                    -11 ans =&gt; Shampooing / coupe
-                                                </th>
-                                                <td className="text-center">20&nbsp;€</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">-5 ans =&gt; Shampooing / coupe</th>
-                                                <td className="text-center">16&nbsp;€</td>
-                                            </tr>
+                                            {props.forfaitsHomme.map((forfait: ForfaitHomme, index: number) => (
+                                                <tr key={index}>
+                                                    <th scope="row">{forfait.name}</th>
+                                                    <td className="text-center">{forfait.price}&nbsp;€</td>
+                                                </tr>
+                                            ))}
                                             </tbody>
                                         </table>
                                     </div>
@@ -276,20 +212,12 @@ export function MainContent() {
                                     <div className="table-responsive">
                                         <table className="table">
                                             <tbody>
-                                            <tr>
-                                                <th scope="row">Barbe tondeuse</th>
-                                                <td className="text-center">9&nbsp;€</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Entretien barbe</th>
-                                                <td className="text-center">19&nbsp;€</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">
-                                                    Rasage complet - Rituel à l&apos;ancienne
-                                                </th>
-                                                <td className="text-center">34&nbsp;€</td>
-                                            </tr>
+                                            {props.forfaitsBarbe.map((forfait: ForfaitBarbe, index: number) => (
+                                                <tr key={index}>
+                                                    <th scope="row">{forfait.name}</th>
+                                                    <td className="text-center">{forfait.price}&nbsp;€</td>
+                                                </tr>
+                                            ))}
                                             </tbody>
                                         </table>
                                     </div>
