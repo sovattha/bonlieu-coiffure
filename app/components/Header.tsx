@@ -1,6 +1,7 @@
 import {WelcomeMessage} from "@/app/components/WelcomeMessage";
+import {PortableTextBlock} from "sanity";
 
-export function Header(props: { content: string; message?: string }) {
+export function Header(props: { content: PortableTextBlock; message?: string }) {
     return <header id="home">
         <div className="container h-100">
             <div className="d-flex flex-column h-100 justify-content-between">
