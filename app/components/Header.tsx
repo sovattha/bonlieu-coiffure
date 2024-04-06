@@ -63,7 +63,7 @@ export function Header(props: { content?: WelcomeMessageType['content']; message
 
                     </div>
                 </div>
-                {props.content && props.message &&
+                {props.content &&
                     <div className="row mt-2 mt-md-0">
                         <div className="col-lg-10 col-xl-8">
                             <h1 className="display-3 mt-md-4 text-white font-900">
