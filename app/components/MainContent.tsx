@@ -8,6 +8,7 @@ import {ForfaitFemme} from "@/types/ForfaitFemme";
 import {ForfaitHomme} from "@/types/ForfaitHomme";
 import {ForfaitJeuneFille} from "@/types/ForfaitJeuneFille";
 import {ForfaitBarbe} from "@/types/ForfaitBarbe";
+import Horaires from "@/app/components/Horaires";
 
 export function MainContent(props: {
     horaires: Horaire[],
@@ -21,28 +22,7 @@ export function MainContent(props: {
     return <main>
         <div className="container-lg my-5">
             <div className="row">
-                <div className="col-lg-4">
-                    <div className="border rounded sticky-top" style={{top: "2rem"}}>
-                        <h1 className="text-center bg-gray-100 py-3 mb-0 h2">Horaires</h1>
-                        <table className="table my-0">
-                            <tbody>
-                                {horaires?.map((horaire: Horaire, index: number) => (
-                                    <tr key={index} className="py-1 px-2 ">
-                                        <td className="align-middle">
-                                            <strong>{horaire.dayOfWeek}</strong>
-                                        </td>
-                                        <td><PortableText value={horaire.content} /></td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </table>
-                        <p className="text-center bg-gray-100 py-3 mb-0 border-top h4">
-                            <a href="tel:+33450778037">
-                                <i className="bi bi-telephone-fill mr-2"/> 04 50 77 80 37
-                            </a>
-                        </p>
-                    </div>
-                </div>
+                <Horaires horaires={horaires} />
                 <div className="col-lg-8 mt-5 mt-lg-0">
                     <section className="row">
                         <div className="col-12 mb-5">
