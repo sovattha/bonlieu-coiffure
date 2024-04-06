@@ -5,10 +5,22 @@ import {Horaire} from "@/types/Horaire";
 import {ForfaitFemme} from "@/types/ForfaitFemme";
 import {ForfaitJeuneFille} from "@/types/ForfaitJeuneFille";
 import {ForfaitHomme} from "@/types/ForfaitHomme";
+import {MentionsLegales} from "@/types/MentionsLegales";
 
 export async function getWelcomeMessage(): Promise<WelcomeMessage> {
   return createClient(clientConfig).fetch(
     groq`*[_type == "welcome"][0] {
+      _id,
+      _createdAt,
+      content,
+      message
+    }`,
+    {}
+  )
+}
+export async function getMentionsLegales(): Promise<MentionsLegales> {
+  return createClient(clientConfig).fetch(
+    groq`*[_type == "mentions-legales"][0] {
       _id,
       _createdAt,
       content,

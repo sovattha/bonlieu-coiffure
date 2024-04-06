@@ -2,7 +2,7 @@ import {WelcomeMessage} from "@/app/components/WelcomeMessage";
 import {WelcomeMessage as WelcomeMessageType} from "@/types/WelcomeMessage";
 import {PortableTextBlock} from "sanity";
 
-export function Header(props: { content: WelcomeMessageType['content']; message?: WelcomeMessageType['message'] }) {
+export function Header(props: { content?: WelcomeMessageType['content']; message?: WelcomeMessageType['message'] }) {
     return <header id="home">
         <div className="container h-100">
             <div className="d-flex flex-column h-100 justify-content-between">
@@ -63,17 +63,19 @@ export function Header(props: { content: WelcomeMessageType['content']; message?
 
                     </div>
                 </div>
-                <div className="row mt-2 mt-md-0">
-                    <div className="col-lg-10 col-xl-8">
-                        <h1 className="display-3 mt-md-4 text-white font-900">
-                            Coiffure mixte Barbier
-                        </h1>
-                        <h2 className="mt-3 mt-md-4 text-white">
-                            Bon Lieu Coiffure à Sallenôves
-                        </h2>
-                        <WelcomeMessage content={props.content} message={props.message} />
+                {props.content && props.message &&
+                    <div className="row mt-2 mt-md-0">
+                        <div className="col-lg-10 col-xl-8">
+                            <h1 className="display-3 mt-md-4 text-white font-900">
+                                Coiffure mixte Barbier
+                            </h1>
+                            <h2 className="mt-3 mt-md-4 text-white">
+                                Bon Lieu Coiffure à Sallenôves
+                            </h2>
+                            <WelcomeMessage content={props.content} message={props.message} />
+                        </div>
                     </div>
-                </div>
+                }
                 <div className="row mt-md-4 mb-lg-5 pb-md-5">
                     <div className="col-xl-8">
                         <p>
