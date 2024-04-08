@@ -17,6 +17,7 @@ import {ForfaitBarbe} from "@/types/ForfaitBarbe";
 import {WelcomeMessage} from "@/types/WelcomeMessage";
 
 export const revalidate = 60;
+export const dynamic = 'force-dynamic';
 
 export default async function Page() {
 

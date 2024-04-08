@@ -6,6 +6,7 @@ import {MentionsLegales as MentionsLegalesType} from "@/types/MentionsLegales";
 import {Horaire} from "@/types/Horaire";
 
 export const revalidate = 60;
+export const dynamic = 'force-dynamic';
 
 export default async function Page() {
 
