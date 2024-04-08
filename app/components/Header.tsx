@@ -66,7 +66,7 @@ export function Header(props: { content?: WelcomeMessageType['content']; message
                 }
 
                 <div className="row mt-2 mt-md-0">
-                    <div className="col-lg-10 col-xl-8">
+                    <div className="col-lg-10 col-xl-8 m-auto">
                         <h1 className="display-3 mt-md-4 text-white font-900">
                             Coiffure mixte Barbier
                         </h1>

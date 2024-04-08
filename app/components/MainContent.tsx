@@ -39,12 +39,7 @@ export function MainContent(props: {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
-                                    <img
-                                        src="/images/qrcode.png"
-                                        alt="QR code réservation en ligne"
-                                        id="qr"
-                                    />
-                                    <p className="ml-3 ml-lg-4 h5 font-body">
+                                    <p className="ml-3 ml-lg-4 h5 font-body pt-2">
                                         <span>Réservez un créneau directement en ligne !</span>
                                         <span className="d-block mt-1 font-weight-normal">
                         avec notre nouveau service Réservation Coiffeur
