@@ -6,9 +6,14 @@ import {ForfaitFemme} from "@/types/ForfaitFemme";
 import {ForfaitJeuneFille} from "@/types/ForfaitJeuneFille";
 import {ForfaitHomme} from "@/types/ForfaitHomme";
 import {MentionsLegales} from "@/types/MentionsLegales";
+import { cache } from 'react'
+
+function getSanityClient() {
+  return createClient(clientConfig);
+}
 
 export async function getWelcomeMessage(): Promise<WelcomeMessage> {
-  return createClient(clientConfig).fetch(
+  return cache(() => getSanityClient().fetch(
     groq`*[_type == "welcome"][0] {
       _id,
       _createdAt,
@@ -16,10 +21,10 @@ export async function getWelcomeMessage(): Promise<WelcomeMessage> {
       message
     }`,
     {}
-  )
+  ))();
 }
 export async function getMentionsLegales(): Promise<MentionsLegales> {
-  return createClient(clientConfig).fetch(
+  return cache(() => getSanityClient().fetch(
     groq`*[_type == "mentions-legales"][0] {
       _id,
       _createdAt,
@@ -27,11 +32,11 @@ export async function getMentionsLegales(): Promise<MentionsLegales> {
       message
     }`,
     {}
-  )
+  ))();
 }
 
 export async function getHoraires(): Promise<Horaire[]> {
-  return createClient(clientConfig).fetch(
+  return cache(() => getSanityClient().fetch(
     groq`*[_type == "horaire"] | order(order asc) {
       _id,
       _createdAt,
@@ -40,11 +45,11 @@ export async function getHoraires(): Promise<Horaire[]> {
       content
     }`,
     {}
-  )
+  ))();
 }
 
 export async function getForfaitsFemme(): Promise<ForfaitFemme[]> {
-  return createClient(clientConfig).fetch(
+  return cache(() => getSanityClient().fetch(
     groq`*[_type == "forfaitFemme"] | order(order asc) {
       _id,
       _createdAt,
@@ -56,11 +61,11 @@ export async function getForfaitsFemme(): Promise<ForfaitFemme[]> {
       otherText
     }`,
     {}
-  )
+  ))();
 }
 
 export async function getForfaitsJeuneFille(): Promise<ForfaitJeuneFille[]> {
-  return createClient(clientConfig).fetch(
+  return cache(() => getSanityClient().fetch(
     groq`*[_type == "forfaitJeuneFille"] | order(order asc) {
       _id,
       _createdAt,
@@ -69,11 +74,11 @@ export async function getForfaitsJeuneFille(): Promise<ForfaitJeuneFille[]> {
       price
     }`,
     {}
-  )
+  ))();
 }
 
 export async function getForfaitsHomme(): Promise<ForfaitHomme[]> {
-  return createClient(clientConfig).fetch(
+  return cache(() => getSanityClient().fetch(
     groq`*[_type == "forfaitHomme"] | order(order asc) {
       _id,
       _createdAt,
@@ -82,11 +87,11 @@ export async function getForfaitsHomme(): Promise<ForfaitHomme[]> {
       price
     }`,
     {}
-  )
+  ))();
 }
 
 export async function getForfaitsBarbe(): Promise<ForfaitHomme[]> {
-  return createClient(clientConfig).fetch(
+  return cache(() => getSanityClient().fetch(
     groq`*[_type == "forfaitBarbe"] | order(order asc) {
       _id,
       _createdAt,
@@ -95,6 +100,6 @@ export async function getForfaitsBarbe(): Promise<ForfaitHomme[]> {
       price
     }`,
     {}
-  )
+  ))();
 }
 
