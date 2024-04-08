@@ -16,6 +16,8 @@ import {ForfaitJeuneFille} from "@/types/ForfaitJeuneFille";
 import {ForfaitBarbe} from "@/types/ForfaitBarbe";
 import {WelcomeMessage} from "@/types/WelcomeMessage";
 
+export const revalidate = 60;
+
 export default async function Page() {
 
   const welcomeMessage: WelcomeMessage = await getWelcomeMessage();
