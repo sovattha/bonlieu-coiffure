@@ -5,6 +5,8 @@ import {MentionsLegales} from "@/app/components/MentionsLegales";
 import {MentionsLegales as MentionsLegalesType} from "@/types/MentionsLegales";
 import {Horaire} from "@/types/Horaire";
 
+export const revalidate = 60;
+
 export default async function Page() {
 
   const mentionsLegales: MentionsLegalesType = await getMentionsLegales();

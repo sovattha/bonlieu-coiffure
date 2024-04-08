@@ -5,6 +5,8 @@ export const metadata = {
   description: 'Salon de coiffure à Bonlieu - Haute-Savoie (74)',
 }
 
+export const revalidate = 60;
+
 export default async function RootLayout({
   children,
 }: {
