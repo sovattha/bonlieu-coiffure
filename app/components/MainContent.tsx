@@ -27,24 +27,34 @@ export function MainContent(props: {
                     <section className="row">
                         <div className="col-12 mb-5">
                             <h1>
-                                <i className="bi bi-calendar-check mr-2"/> Réservation en
-                                ligne
+                                <i className="bi bi-calendar-check mr-2"/> Réservation en ligne
                             </h1>
                         </div>
                         <div className="col-12">
-                            <div className="card">
+                            <div style={{
+                                width: "100%",
+                                textAlign: "center",
+                            }}>
                                 <a
                                     href="https://reservationcoiffeur.fr/bon-lieu-coiffure-sallenoves/coiffeur-barbier-sallenoves-rond-point-de-bonlieu-74270"
-                                    className="d-flex align-items-center glow-on-hover"
                                     target="_blank"
                                     rel="noopener noreferrer"
+                                    style={
+                                        {
+                                            textDecoration: "none",
+                                            backgroundColor: "#503c3b",
+                                            width: "255px",
+                                            margin: "auto",
+                                            padding: "25px",
+                                            color: "white",
+                                            textAlign: "center",
+                                            borderRadius: "50px",
+                                            fontSize: "large",
+                                            fontWeight: "bold",
+                                        }
+                                    }
                                 >
-                                    <p className="ml-3 ml-lg-4 h5 font-body pt-2">
-                                        <span>Réservez un créneau directement en ligne !</span>
-                                        <span className="d-block mt-1 font-weight-normal">
-                        avec notre nouveau service Réservation Coiffeur
-                      </span>
-                                    </p>
+                                        Prendre rendez-vous
                                 </a>
                             </div>
                         </div>
@@ -315,20 +325,16 @@ export function MainContent(props: {
                                 title: "Logo marque Artisan"
                             }, {
                                 id: 2,
-                                imageUrl: "/images/marque-broaer.jpg",
-                                title: "Logo marque Broaer"
-                            }, {
-                                id: 3,
-                                imageUrl: "/images/marque-bandido.jpg",
-                                title: "Logo marque Bandido"
-                            }, {
-                                id: 4,
                                 imageUrl: "/images/marque-milkshake.jpg",
                                 title: "Logo marque MilkShake"
                             }, {
-                                id: 5,
-                                imageUrl: "/images/marque-menstories.jpg",
-                                title: "Logo marque Men Stories"
+                                id: 3,
+                                imageUrl: "/images/marque-echos-line.png",
+                                title: "Logo marque Echos Line"
+                            }, {
+                                id: 4,
+                                imageUrl: "/images/marque-urban-keratin.png",
+                                title: "Logo marque Urban Keratin"
                             }]} options={OPTIONS}/>
                         </div>
                     </section>
