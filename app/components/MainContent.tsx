@@ -3,7 +3,6 @@
 import {EmblaOptionsType} from "embla-carousel";
 import EmblaCarousel from "@/app/components/embla/EmblaCarousel";
 import {Horaire} from "@/types/Horaire";
-import {PortableText} from "@portabletext/react";
 import {ForfaitFemme} from "@/types/ForfaitFemme";
 import {ForfaitHomme} from "@/types/ForfaitHomme";
 import {ForfaitJeuneFille} from "@/types/ForfaitJeuneFille";

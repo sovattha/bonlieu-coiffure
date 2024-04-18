@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@babel/eslint-parser": "^7.24.1",
     "@portabletext/react": "^2.0.2",
     "embla-carousel": "8.0.1",
     "embla-carousel-autoplay": "8.0.1",
