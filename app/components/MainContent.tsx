@@ -320,6 +320,10 @@ export function MainContent(props: {
                         </div>
                         <div className="col-10 offset-1 col-lg-12 offset-lg-0">
                             <EmblaCarousel slides={[{
+                                id: 5,
+                                imageUrl: "/images/marque-ybera.png",
+                                title: "Logo marque Ybera"
+                            }, {
                                 id: 1,
                                 imageUrl: "/images/marque-artisan.jpg",
                                 title: "Logo marque Artisan"
@@ -328,14 +332,14 @@ export function MainContent(props: {
                                 imageUrl: "/images/marque-milkshake.jpg",
                                 title: "Logo marque MilkShake"
                             }, {
-                                id: 3,
-                                imageUrl: "/images/marque-echos-line.png",
-                                title: "Logo marque Echos Line"
-                            }, {
                                 id: 4,
                                 imageUrl: "/images/marque-urban-keratin.png",
                                 title: "Logo marque Urban Keratin"
-                            }]} options={OPTIONS}/>
+                            }, {
+                                id: 3,
+                                imageUrl: "/images/marque-echos-line.png",
+                                title: "Logo marque Echos Line"
+                            }, ]} options={OPTIONS}/>
                         </div>
                     </section>
                 </div>
