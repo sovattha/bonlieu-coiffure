@@ -29,7 +29,7 @@ export default async function Page() {
   const forfaitsBarbe: ForfaitBarbe[] = await getForfaitsBarbe();
 
   return <>
-      <Header content={welcomeMessage.content} message={welcomeMessage.message} />
+      <Header content={welcomeMessage?.content} message={welcomeMessage?.message} />
       <MainContent
           horaires={horaires}
           forfaitsFemme={forfaitsFemme}
